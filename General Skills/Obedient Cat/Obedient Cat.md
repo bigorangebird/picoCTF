@@ -23,7 +23,12 @@ If you are familiar with working at the command line, this is a very simple task
 
 ## Steps
 
-1. From the command line, run "wget" ... not found; so needs to be installed
+1. From the command line, run the *wget* command
+
+```
+wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
+```
+   ... not found; so needs to be installed
 2. Google shows that it's available as a Homebrew package via https://brew.sh
 3. Installed homebrew using the command
 
