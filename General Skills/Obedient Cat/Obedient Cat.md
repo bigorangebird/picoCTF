@@ -19,7 +19,7 @@ This file has a flag in plain sight (aka "in-the-clear"). [Download flag](https:
 
 ## Overview
 
-If you are familiar with working at the command line, this is a very simple task - just follow the steps as detailed in the hints. It really doesn't get any more straight foward than this.
+If you are familiar with working at the command line, this is a very simple task - just follow the steps as detailed in the hints. It really doesn't get any more straight forward than this.
 
 ## Steps
 
