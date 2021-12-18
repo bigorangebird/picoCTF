@@ -7,7 +7,7 @@
 Cryptography can be easy, do you know what ROT13 is?. *cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_Ncualgvd}*
 
 ### Downloads
-[Flag](./flag)
+None
 
 ### Hints
 
@@ -31,7 +31,7 @@ c -> d -> e -> f -> g -> h -> i -> j -> k -> l -> m -> n -> o -> p
 
 2. Apply the same logic to the next character - *v* - which seems to map, as required, to *i*. This definitely seems to be right way to go.
 
-   However, performing the conversion by hand is a little tedious - so let's see if an online tool can help. 
+   However, performing the conversion by hand is a little tedious - so let's see if an online tool can help.
 
 3. Using [CyberChef](https://gchq.github.io/CyberChef/#recipe=ROT13(true,true,false,13)&input=Y3ZwYlBHU3thcmtnX2d2enJfVid5eV9nZWxfMl9lYmhhcWZfYnNfZWJnMTNfTmN1YWxndmR9) provides the complete plaintext quickly and easily.
 
