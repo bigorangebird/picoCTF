@@ -71,17 +71,17 @@ Megapixels                      : 4.1
 ```
 
 
-4. The flag isn't immediately visible, but both the IPTC Digest and License fields seem to be encoded; IPTC seems to be in Hex and License in Base64
+5. The flag isn't immediately visible, but both the IPTC Digest and License fields seem to be encoded; IPTC seems to be in Hex and License in Base64
 
 
-5. Using CyberChef to analyse the values of both fields; the flag was the plaintext from the License field.
+6. Using CyberChef to analyse the values of both fields; the flag was the plaintext from the License field.
 
 ```
 picoCTF{the_m3tadata_1s_******}
 ```
 
 
-9. Cut and paste the displayed flag into the picoCTF window to gain the credit
+7. Cut and paste the displayed flag into the picoCTF window to gain the credit
 
 
 
