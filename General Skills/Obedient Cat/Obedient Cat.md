@@ -34,7 +34,7 @@ If you are familiar with working at the command line, this is a very simple task
 4. Installed wget
 
 ```
-brew install Wget
+brew install wget
 ```
 
 5. Continue with the instructions and use *wget* command
@@ -43,8 +43,18 @@ brew install Wget
 wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
 ```
 
-6.
+6. Get the contents of the downloaded *flag* file with the *cat* command
 
-## Side Notes
+```
+cat flag
+```
 
-1. Wget is a free utility for non-interactive download of files from the Web. It was already installed on my Mac OS.
+7. Cut and paste the output into the picoCTF window to gain the credit
+
+```
+picoCTF{s4n1ty_v3r1f13d_*******}
+```
+
+### Side Notes
+
+1. Wget is a free utility for non-interactive download of files from the Web.
