@@ -8,7 +8,9 @@ This file has a flag in plain sight (aka "in-the-clear").
 https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
 [./flag](Also available in this repo)
 
-#Point 5
+#Points
+
+5
 
 #Hints
 
@@ -34,7 +36,7 @@ If you are familiar with working at the command line, this is a very simple task
 
 brew install Wget
 
-5. Continue with the instructions and use *wget* command 
+5. Continue with the instructions and use *wget* command
 
 wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
 
