@@ -28,15 +28,21 @@ If you are familiar with working at the command line, this is a very simple task
 2. Google shows that it's available as a Homebrew package via https://brew.sh
 3. Installed homebrew using the command
 
+'''
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+'''
 
 4. Installed wget
 
+'''
 brew install Wget
+'''
 
 5. Continue with the instructions and use *wget* command
 
+'''
 wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
+'''
 
 6.
 
