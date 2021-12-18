@@ -1,14 +1,13 @@
 # Obedient Cat
-- General Skills
+- Category : General Skills
 - Points 5
 
 ### Description
 
-This file has a flag in plain sight (aka "in-the-clear").
+This file has a flag in plain sight (aka "in-the-clear"). [Download flag](https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag).
 
 ### Downloads
-https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
-[./flag](Also available in this repo)
+[flag](Also available in this repo)
 
 ### Hints
 
