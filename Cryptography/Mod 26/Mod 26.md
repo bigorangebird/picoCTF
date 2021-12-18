@@ -1,6 +1,6 @@
 # Mod 26
-- Category : General Skills
-- Points 5
+- Category : Cryptography
+- Points 10
 
 ### Description
 
