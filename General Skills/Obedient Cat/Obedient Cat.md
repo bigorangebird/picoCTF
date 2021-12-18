@@ -29,32 +29,32 @@ If you are familiar with working at the command line, this is a very simple task
 wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
 ```
    But the wget command isn't available. Google shows that it's available as a Homebrew package via https://brew.sh
-   
-3. Installed homebrew using the command
+
+2. Installed homebrew using the command
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-4. Installed wget
+3. Installed wget
 
 ```
 brew install wget
 ```
 
-5. Continue with the instructions and use *wget* command
+4. Continue with the instructions and use *wget* command
 
 ```
 wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
 ```
 
-6. Get the contents of the downloaded *flag* file with the *cat* command
+5. Get the contents of the downloaded *flag* file with the *cat* command
 
 ```
 cat flag
 ```
 
-7. Cut and paste the output into the picoCTF window to gain the credit
+6. Cut and paste the output into the picoCTF window to gain the credit
 
 ```
 picoCTF{s4n1ty_v3r1f13d_*******}
