@@ -28,14 +28,14 @@ Another relatively simple task that just requires following the instructions pro
 
 ## Steps
 
-1. From the command line, run the *wget* command to download each of the three files
+1. From the command line, run the *wget* command to download the file
 
 ```
 https://mercury.picoctf.net/static/cfea736820f329083dab9558c3932ada/warm
 
 ```
 
-2. Following the instriuction, we need to change the permissions on the *warm* program wsing the *chmod* command  
+2. Following the instruction, we need to change the permissions on the *warm* program wsing the *chmod* command  
 
 ```
 chmod +x warm
@@ -87,4 +87,4 @@ warm: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linke
 zsh: exec format error: ./warm
 ```
 
-   Instead, I moved to my Kali VM (which runs on Debain linux), re-ran the steps to download and chmod the file. 
+   Instead, I moved to my Kali VM (which runs on Debain linux), re-ran the steps to download and chmod the file.
