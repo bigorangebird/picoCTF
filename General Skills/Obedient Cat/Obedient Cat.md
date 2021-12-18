@@ -28,9 +28,8 @@ If you are familiar with working at the command line, this is a very simple task
 ```
 wget https://mercury.picoctf.net/static/33996e32dce022205a6a36f69aba56f0/flag
 ```
-   ... not found; so needs to be installed.
+   But the wget command isn't available. Google shows that it's available as a Homebrew package via https://brew.sh
    
-2. Google shows that it's available as a Homebrew package via https://brew.sh
 3. Installed homebrew using the command
 
 ```
