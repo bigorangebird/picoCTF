@@ -30,7 +30,7 @@ Not exactly the toughest of challenges so far ... and doesn't really seem worthy
    ```
 
 
-2. We open the file in a text editor and see this at the head...
+2. We open the file in a text editor and see this at the end...
 
    ```
    public boolean checkPassword(String password) {
@@ -41,7 +41,7 @@ Not exactly the toughest of challenges so far ... and doesn't really seem worthy
    Which seems to tell us all we need to know, just need to wrap it with *picoCTF{...}*
 
 
-4. Cut and paste the displayed flag, and adding the closing brace into the picoCTF window to gain the credit
+3. Cut and paste the displayed flag, and adding the closing brace into the picoCTF window to gain the credit
 
 
 
