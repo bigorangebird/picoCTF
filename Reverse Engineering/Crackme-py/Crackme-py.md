@@ -63,7 +63,7 @@ Anther challenge with nothing to help us - although it turns out to be ridiculou
 
    picoCTF{1|\/|_4_p34|\|ut_******}
 
-5. Cut and paste the displayed flag, and adding the closing brace into the picoCTF window to gain the credit
+4. Cut and paste the displayed flag, and adding the closing brace into the picoCTF window to gain the credit
 
 
 
