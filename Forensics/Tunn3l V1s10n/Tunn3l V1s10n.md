@@ -1,6 +1,6 @@
 # Tunn3l V1s10n
 - Category : Forensics
-- Points 30
+- Points 40
 
 ### Description
 
