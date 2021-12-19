@@ -131,7 +131,7 @@ We need to figure out a way to crack a one-time pad using a weakness in the enco
 
 
 
-3. Once again, not the format we are expecting (neither wrapped with *picCTF{...}* nor is it word-like.
+6. Once again, not the format we are expecting (neither wrapped with *picCTF{...}* nor is it word-like.
    But we'll wrap it in *picoCtF{...}* and submit.
 
    picCTF{75302b38697a8717f0faee9c0*********}
