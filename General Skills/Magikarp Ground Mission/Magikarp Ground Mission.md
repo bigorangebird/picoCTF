@@ -1,6 +1,6 @@
 # Magikarp Ground Mission
 - Category : General Skills
-- Points 10
+- Points 30
 
 ### Description
 
