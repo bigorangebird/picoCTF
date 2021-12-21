@@ -1,0 +1,18 @@
+Package: steghide
+Source: steghide (0.5.1-9.1)
+Version: 0.5.1-9.1+b1
+Architecture: amd64
+Maintainer: Ola Lundqvist <opal@debian.org>
+Installed-Size: 426
+Depends: libc6 (>= 2.2.5), libgcc1 (>= 1:4.1.1), libjpeg62-turbo (>= 1:1.3.1), libmcrypt4, libmhash2, libstdc++6 (>= 4.9), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: A steganography hiding tool
+ Steghide is steganography program which hides bits of a data file
+ in some of the least significant bits of another file in such a way
+ that the existence of the data file is not visible and cannot be proven.
+ .
+ Steghide is designed to be portable and configurable and features hiding
+ data in bmp, wav and au files, blowfish encryption, MD5 hashing of
+ passphrases to blowfish keys, and pseudo-random distribution of hidden bits
+ in the container data.
