@@ -1,4 +1,5 @@
 # MacroHard WeakEdge
+
 - Category : Forensics
 - Points 60
 
@@ -6,25 +7,21 @@
 
 Figure out how they moved the [flag](https://mercury.picoctf.net/static/b686a99ec088f10b324cfe963bd32dab/tftp.pcapng).
 
-
 ### Downloads
-[flag](./tftp.pcapng)
 
+[flag](./tftp.pcapng)
 
 ### Hints
 
 1. What are some other ways to hide data?
 
-
-
 ## Overview
 
 Steganography - a crash course!
 
-
 ## Steps
 
-1. From the command line, run the *wget* command to download the file
+1. From the command line, run the _wget_ command to download the file
 
    ```
    https://mercury.picoctf.net/static/b686a99ec088f10b324cfe963bd32dab/tftp.pcapng
@@ -32,9 +29,9 @@ Steganography - a crash course!
 
    And open it in Wireshark
 
-
 2. An initial scan of the network traffic... I spotted (on line 19) a file read request.
    A good place to start ... so I added a filter to show any read requests, there were 7
+
    ```
    9	8.684408491	10.10.10.11	10.10.10.12	TFTP	60	Read Request, File: plan, Transfer type: octet
    11	37.013336835	10.10.10.11	10.10.10.12	TFTP	60	Read Request, File: plan, Transfer type: octet
@@ -47,7 +44,7 @@ Steganography - a crash course!
 
 3. A bit of hunting around, and wireshark can export the files for us (File -> Export Objects -> TFPT).
 
-   Use the *file* command to see what we've got.
+   Use the _file_ command to see what we've got.
 
    ```
    > file *
@@ -70,23 +67,24 @@ Steganography - a crash course!
 
    Hmm, that looks like some encrypted text, so loading into CyberChef to see what we can find.
    Ok, so ROT13 gave us (spaces added for readability)
+
    ```
    TFTP DOESNT ENCRYPT OUR TRAFFIC SO WE MUST DISGUISE OUR FLAG TRANSFER.
    FIGURE OUT AWAY TO HIDE THE FLAG AND I WILL CHECK BACK FOR THE PLAN
    ```
+
    And
+
    ```
     I USED THE PROGRAM AND HID IT WITH - DUE DILIGENCE. CHECK OUT THE PHOTOS
    ```
 
-
 5. Hmm - what program?
    Ok - let's leave that for a moment and move onto the images and open them in an image viewer
 
-   They don't obviously display of a challenge flag - the only thing that is amiss is in *Picture1.bmp*. There is are some dark pixels in the center of the image. The look a little out of place but zooming in doesn't reveal any detail.
+   They don't obviously display of a challenge flag - the only thing that is amiss is in _Picture1.bmp_. There is are some dark pixels in the center of the image. The look a little out of place but zooming in doesn't reveal any detail.
 
    There is nothing obvious in the meta-data of any of the images.
-
 
 6. So, let's look at the program.deb file.
 
@@ -144,24 +142,23 @@ Steganography - a crash course!
    x ./usr/bin/steghide
    ```
 
-   Oooh ... the last line of the output (*./usr/bin/steghide*) suggest that steganography has been used to hide the flag.
+   Oooh ... the last line of the output (_./usr/bin/steghide_) suggest that steganography has been used to hide the flag.
 
-   This might possibly account for the strange pixels seen in *Picture1.bmp* ... although steganography shouldn't alter anything visible with the image, so it might just be a real something!
+   This might possibly account for the strange pixels seen in _Picture1.bmp_ ... although steganography shouldn't alter anything visible with the image, so it might just be a real something!
 
-
-7. Checking out the man page *steghide*, we need a key in order to extract the message from the image .... it must be somewhere in the second *plan* file.
+7. Checking out the man page _steghide_, we need a key in order to extract the message from the image .... it must be somewhere in the second _plan_ file.
 
    Let's give it a try ... although first I need to install steghide on my Mac, which needs MacPorts to work. Everyday is a school day
 
-   Our best candidate is the string *DUEDILIGENCE*
+   Our best candidate is the string _DUEDILIGENCE_
 
    ```
    > extract -sf picture1.bmp -p "DUEDILIGENCE.CHECKOUTTHEPHOTOS"
    steghide: could not extract any data with that passphrase!
    > steghide extract -sf picture2.bmp -p "DUEDILIGENCE.CHECKOUTTHEPHOTOS"
    steghide: could not extract any data with that passphrase!
-   > steghide extract -sf picture3.bmp -p "DUEDILIGENCE"                  
-   wrote extracted data to "flag.txt".   
+   > steghide extract -sf picture3.bmp -p "DUEDILIGENCE"
+   wrote extracted data to "flag.txt".
    ```
 
    So nothing appears to be hidden in their first two images, but something in the third.
@@ -171,9 +168,7 @@ Steganography - a crash course!
    picoCTF{h1dd3n_1n_pLa1n_51GHT_*****}
    ```
 
-8. That looks like a complete challenge flag  -  so cut and paste the flag into the picoCTF window; and the credit is gained
-
-
+8. That looks like a complete challenge flag - so cut and paste the flag into the picoCTF window; and the credit is gained
 
 ### Side Notes
 

@@ -1,4 +1,5 @@
 # Hurry up! Wait!
+
 - Category : Reverse Engineering
 - Points 100
 
@@ -6,24 +7,21 @@
 
 [svchost.exe](https://mercury.picoctf.net/static/7163c5d64bc60b4d079422da5c5e5053/svchost.exe)
 
-
 ### Downloads
-[svchost.exe](./svchost.exe)
 
+[svchost.exe](./svchost.exe)
 
 ### Hints
 
 None
 
-
 ## Overview
 
 Wow ... literally help here whatsoever.
 
-
 ## Steps
 
-1. Okay... let's get a copy of the file with *wget* and see what it is
+1. Okay... let's get a copy of the file with _wget_ and see what it is
 
    ```
    > file svchost.exe
@@ -31,7 +29,7 @@ Wow ... literally help here whatsoever.
    ```
 
    So, it's an executable .... not something I'm familiar with interogating.
-   I wonder if *strings* might tell us anything.
+   I wonder if _strings_ might tell us anything.
 
    Not much... I've only included the things that jumped out
 
@@ -43,44 +41,41 @@ Wow ... literally help here whatsoever.
    123456789abcdefghijklmnopqrstuvwxyzCTF_{}
    ```
 
-2. So *libgnat* is something to do with the ADA language ... but it doesn't seem to be available to download for either my Mac or for Debain (which is running Kali). I don't how if it's needed tho.
+2. So _libgnat_ is something to do with the ADA language ... but it doesn't seem to be available to download for either my Mac or for Debain (which is running Kali). I don't how if it's needed tho.
 
-  Then the seems to be a list of 1-9a-z characters defined somewhere; along with the text "CTF" .... and whilst I doubt it's our challenge flag, I gave it a try .... only to have it rejected.
+Then the seems to be a list of 1-9a-z characters defined somewhere; along with the text "CTF" .... and whilst I doubt it's our challenge flag, I gave it a try .... only to have it rejected.
 
+3. I've spend ages looking at reviews of various reverse-engineering tools; and after playing with a couple, settled on [_Ghidra_](https://ghidra-sre.org).
 
-3. I've spend ages looking at reviews of various reverse-engineering tools; and after playing with a couple, settled on [*Ghidra*](https://ghidra-sre.org).
+   And an equally long time reading and learning about it.
 
-    And an equally long time reading and learning about it.
+4. After loading _svchost.exe_ into _Ghidra_ and running the 'analyse' function; I noticed that there was an 'entry' function ... which I guess is the equivalent of "main".
 
+```
+void entry(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+{
+  undefined8 in_stack_00000000;
+  undefined auStack8 [8];
 
-4. After loading *svchost.exe* into *Ghidra* and running the 'analyse' function; I noticed that there was an 'entry' function ... which I guess is the equivalent of "main".
+  __libc_start_main(FUN_00101fcc,in_stack_00000000,&stack0x00000008,FUN_00102a30,FUN_00102aa0,
+                    param_3,auStack8);
+  do {
+                    /* WARNING: Do nothing block with infinite loop */
+  } while( true );
+}
+```
 
-  ```
-  void entry(undefined8 param_1,undefined8 param_2,undefined8 param_3)
-  {
-    undefined8 in_stack_00000000;
-    undefined auStack8 [8];
+Which seems to do something with _\_\_libc_start_main_ and then (as the comment confirms) blocks with an infinite loop (on the _while true_)
 
-    __libc_start_main(FUN_00101fcc,in_stack_00000000,&stack0x00000008,FUN_00102a30,FUN_00102aa0,
-                      param_3,auStack8);
-    do {
-                      /* WARNING: Do nothing block with infinite loop */
-    } while( true );
-  }
-  ```
+This would align with the challenge title of 'hurry-up and wait'.
 
-  Which seems to do something with *__libc_start_main* and then (as the comment confirms) blocks with an infinite loop (on the *while true*)
+So let's explore this further.
 
-  This would align with the challenge title of 'hurry-up and wait'.
-
-  So let's explore this further.
-
-
-5. *__libc_start_main* seems call a number of other functions ... we could follow those individually, but I'm pretty sure we'd be led a merry-dance.
+5. _\_\_libc_start_main_ seems call a number of other functions ... we could follow those individually, but I'm pretty sure we'd be led a merry-dance.
 
    To let's have a more detailed look at the functions found by Ghidra to see if these is anything that catches our eye (not that we really know what we are looking at)
 
-   The one that really stands out is *FUN_0010298a()* ... which seems to make a long list of calls to other functions.
+   The one that really stands out is _FUN_0010298a()_ ... which seems to make a long list of calls to other functions.
 
    ```
    void FUN_0010298a(void)
@@ -118,11 +113,10 @@ Wow ... literally help here whatsoever.
    }
    ```
 
-
-
-6. Looking at the first of those called functions *FUN_00102616*
+6. Looking at the first of those called functions _FUN_00102616_
 
    It seems to retrieve, and return, a data value ....
+
    ```
    void FUN_00102616(void)
    {
@@ -131,7 +125,8 @@ Wow ... literally help here whatsoever.
    }
    ```
 
-   And the contents of *&DAT_00102cd8* seems to contain the letter *p*
+   And the contents of _&DAT_00102cd8_ seems to contain the letter _p_
+
    ```
    DAT_00102cd8          XREF[3]:     FUN_00102616:0010261f(*),
                                       FUN_00102616:0010262d(*),
@@ -139,8 +134,7 @@ Wow ... literally help here whatsoever.
           00102cd8 70              ??         70h    p
    ```
 
-   The second function *FUN_001024aa* reference *&DAT_00102cd1&* which seems to contain the letter *I*
-
+   The second function _FUN_001024aa_ reference _&DAT_00102cd1&_ which seems to contain the letter _I_
 
 7. We might be onto something here.... I notice that there is a scripting language for Ghidra, but this seems simple enough to work through by hand.
 
@@ -169,22 +163,18 @@ Wow ... literally help here whatsoever.
   FUN_00102136();  references &DAT_00102cc0 = 1
   FUN_001023a6();  references &DAT_00102cc0 = d
   FUN_00102136();  references &DAT_00102cc0 = 1
-  FUN_0010230a();  references &DAT_00102cc9 = a  
+  FUN_0010230a();  references &DAT_00102cc9 = a
   FUN_001023da();  references &DAT_00102ccd = e
   FUN_00102956();  references &DAT_00102ce8 = }
 ```
 
-  Which would appear to be a challenge flag
+Which would appear to be a challenge flag
 
-  ```
-  picoCTF{d15a5m_ftw_5c1d1ae}
-  ```
-
-
+```
+picoCTF{d15a5m_ftw_5c1d1ae}
+```
 
 4. This looks a little odd, but doesn't appear to be encoded in anything obvious so we'll to enter the challenge flag directly into picoCTF abd see if we gain the credit ... which we do.
-
-
 
 ### Side Notes
 
